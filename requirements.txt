@@ -1,3 +1,7 @@
 pyglet
 panda3d
 pygame
+PyOpenGL
+numpy
+Pillow
+PyGLM

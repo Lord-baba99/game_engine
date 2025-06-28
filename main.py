@@ -1,11 +1,6 @@
-import pyglet
+from src.engine import Engine
 
-window = pyglet.window.Window(800, 600, "Hello 3D Game Engine")
-
-@window.event
-def on_draw():
-    window.clear()
-    # Ici, vous pouvez dessiner vos objets 3D
-
+# --- Point d'entrée du programme ---
 if __name__ == "__main__":
-    pyglet.app.run()
+    mon_moteur = Engine()
+    mon_moteur.run()
