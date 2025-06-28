@@ -1,17 +1,16 @@
-// --- fragment.glsl ---
+// --- shaders/fragment.glsl (mis à jour) ---
 #version 330 core
 
-// 'in' signifie qu'on reçoit cette donnée du vertex shader.
-// OpenGL interpole automatiquement la couleur pour chaque pixel à l'intérieur du triangle.
-in vec3 v_color;
+// NOUVEAU: On reçoit la coordonnée de texture (interpolée par le GPU)
+in vec2 v_texCoord;
 
-// 'out' signifie que c'est la sortie finale de ce shader.
-// 'FragColor' est le nom standard pour la couleur finale du pixel.
+// NOUVEAU: Le 'sampler2D' est notre image de texture.
+uniform sampler2D u_texture;
+
 out vec4 FragColor;
 
 void main()
 {
-    // On assigne la couleur reçue (et interpolée) à la couleur finale du pixel.
-    // On met la composante alpha (transparence) à 1.0 (opaque).
-    FragColor = vec4(v_color, 1.0);
+    // NOUVEAU: La couleur finale est la couleur de la texture à la coordonnée donnée.
+    FragColor = texture(u_texture, v_texCoord);
 }
