@@ -1,0 +1,3 @@
+pyglet
+panda3d
+pygame
